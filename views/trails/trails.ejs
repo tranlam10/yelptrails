@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+<div class="container" id="header">
+	<header class="jumbotron image">
+		<h1>Welcome to YelpTrail!</h1>
+		<p>View our hand-picked trails from all over the United States!</p>
+		<button class="btn btn-lg btn-success center-block">
+			<a class="white" href="/trails/new">Add a new trail!</a>
+		</button>
+	</header>
+
+	<div class="row text-center" style="display: flex; flex-wrap: wrap;">
+		<% trails.forEach(function(trail){ %>
+			<div class="col-md-3 col-sm-6">
+				<div class="img-thumbnail">
+					<img src="<%= trail.image %>" width="200px" height="200px">
+				</div>
+				<div class="caption">
+					<h4><%= trail.name %></h4>
+				</div>
+				<p>
+					<a href="/trails/<%= trail._id %>" class="btn btn-primary">More Info</a>
+				</p>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+
+
+<% include ../partials/footer %>
