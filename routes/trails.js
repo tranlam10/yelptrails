@@ -14,15 +14,9 @@ var options = {
 
 var geocoder = NodeGeocoder(options);
 
-// var trails = [
-// 	{name: "Angel's Landing", image: "https://images.unsplash.com/photo-1475351177616-1e5e440dccef?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7cde0a2b5b4ba4abb69d19f61288c30d&auto=format&fit=crop&w=1950&q=80"},
-// 	{name: "The Narrows", image: "https://images.unsplash.com/photo-1509595427827-45f14a172eec?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0e0a17e48cd1c7a18c06314455e5155&auto=format&fit=crop&w=1050&q=80"},
-// 	{name: "South Kaibab Trail", image: "https://images.unsplash.com/photo-1505191878972-12d4a2be6e49?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=397e549577a1d4fdf5c1c307667d9379&auto=format&fit=crop&w=1053&q=80"},
-// 	];
-
-//INDEX - show all campgrounds
+//INDEX - show all trails
 router.get("/trails", function(req, res) {
-	//Get all campgrounds from DB
+	//Get all trails from DB
 	console.log(req.user);
 	Trail.find({}, function(err, alltrails){
 		if (err) {
@@ -45,7 +39,7 @@ router.post("/trails", middleware.isLoggedIn, function (req, res) {
 		username: req.user.username
 	};
 
-	geocoder.geocode(req.body.location, function (err, data) {
+  geocoder.geocode(req.body.location, function (err, data) {
 	 if (err || !data.length) {
 		 req.flash('error', 'Invalid address');
 		 return res.redirect('back');
@@ -54,18 +48,17 @@ router.post("/trails", middleware.isLoggedIn, function (req, res) {
 	 var lng = data[0].longitude;
 	 var location = data[0].formattedAddress;
 
-	var newTrail = {name: name, image: image, description: desc, website: website, author: author, location: location, lat: lat, lng: lng};
-	//create a new campground and save to database
-	console.log(newTrail);
-	Trail.create(newTrail, function (err, newlyCreated){
-		if (err) {
-			res.redirect("/trails");
-		} else {
-			//redirect back to trails page
-			res.redirect("/trails");
-		}
-	});
-	trails.push(newTrail);
+  	var newTrail = {name: name, image: image, description: desc, website: website, author: author, location: location, lat: lat, lng: lng};
+  	//create a new campground and save to database
+  	console.log(newTrail);
+  	Trail.create(newTrail, function (err, newlyCreated){
+  		if (err) {
+  			res.redirect("/trails");
+  		} else {
+  			//redirect back to trails page
+  			res.redirect("/trails");
+  		}
+  	});
 	});
 });
 

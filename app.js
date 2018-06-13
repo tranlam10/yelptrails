@@ -67,6 +67,6 @@ app.use(indexRoutes);
 app.use(commentRoutes);
 app.use(trailRoutes);
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, function() {
 	console.log("The YelpTrail server has started!");
 });
