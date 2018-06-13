@@ -20,7 +20,8 @@ var commentRoutes = require("./routes/comments");
 var trailRoutes = require("./routes/trails");
 var indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/yelp_trails");
+//mongoose.connect("mongodb://localhost/yelp_trails");
+mongoose.connect("mongodb://lam:lol654qp10@ds259070.mlab.com:59070/yelptrail");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
