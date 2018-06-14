@@ -118,31 +118,4 @@ router.delete("/trails/:id", middleware.checkTrailOwner, function(req, res) {
 	});
 });
 
-// ///middleware
-// function isLoggedIn(req, res, next) {
-// 	if(req.isAuthenticated()) {
-// 		return next();
-// 	}
-// 	res.redirect("/login");
-// }
-//
-// function checkTrailOwner(req, res, next) {
-// 	if (req.isAuthenticated) {
-// 		Trail.findById(req.params.id, function(err, foundTrail) {
-// 			if (err) {
-// 				res.redirect("/trails");
-// 			} else {
-// 				//does user own the trail?
-// 				if (foundTrail.author.id.equals(req.user._id)) {
-// 					next();
-// 				} else {
-// 					res.redirect("back");
-// 				}
-// 			}
-// 		});
-// 	} else {
-// 		res.redirect("back");
-// 	}
-// }
-
 module.exports = router;

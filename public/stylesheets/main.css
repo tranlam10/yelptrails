@@ -48,6 +48,11 @@ label {
   border-radius:3px
 }
 
+#card-padding {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 #login {
   color: black;
   text-align: center;

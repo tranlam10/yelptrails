@@ -49,24 +49,10 @@ app.use(function(req, res, next) {
 	next();
 });
 
-// Trail.create(
-// 	{
-// 		name: "Brave New World",
-// 		image: "https://images.unsplash.com/photo-1475351177616-1e5e440dccef?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7cde0a2b5b4ba4abb69d19f61288c30d&auto=format&fit=crop&w=1950&q=80",
-// 		description: "Nice trail, 5 miles long"
-// 	}, function (err, trail) {
-// 		if (err) {
-// 			console.log(err);
-// 		} else {
-// 			console.log("NEWLY CREATED TRAIL");
-// 			console.log(trail);
-// 		}
-// 	});
-
 app.use(indexRoutes);
 app.use(commentRoutes);
 app.use(trailRoutes);
 
-app.listen(3000, function() {
+app.listen(process.env.PORT, process.env.IP, function(){
 	console.log("The YelpTrail server has started!");
 });

@@ -13,13 +13,13 @@
 		<% trails.forEach(function(trail){ %>
 			<div class="col-md-3 col-sm-6">
 				<div class="img-thumbnail">
-					<img src="<%= trail.image %>" width="200px" height="200px">
-				</div>
-				<div class="caption">
-					<h4><%= trail.name %></h4>
+					<img src="<%= trail.image %>" width=100% height="225px">
+					<div class="caption" id="card-padding">
+						<h4><%= trail.name %></h4>
+						<a href="/trails/<%= trail._id %>" class="btn btn-primary btn-sm">More Info</a>
+					</div>
 				</div>
 				<p>
-					<a href="/trails/<%= trail._id %>" class="btn btn-primary">More Info</a>
 				</p>
 			</div>
 		<% }); %>

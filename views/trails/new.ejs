@@ -1,20 +1,25 @@
 <% include ../partials/header %>
 
 <div class="container">
-	<div class="row">
-		<h1 style="text-align: center;">Create a New Trail</h1>
+	<div class="row" id="header">
 			<div style="width: 30%; margin: 0 auto;">
+				<h1 style="text-align: center;">Create a New Trail</h1>
+				<br/><br/>
 				<form action="/trails" method="POST">
 					<div class="form-group">
+						<label for="location">Trail Name</label>
 						<input class="form-control" type="text" name="name" placeholder="name">
 					</div>
 					<div class="form-group">
+						<label for="location">Image</label>
 						<input class="form-control" type="text" name="image" placeholder="image url">
 					</div>
 					<div class="form-group">
+						<label for="location">Description</label>
 						<input class="form-control" type="text" name="description" placeholder="description">
 					</div>
 					<div class="form-group">
+						<label for="location">Website</label>
 						<input class="form-control" type="text" name="website" placeholder="website">
 					</div>
 					<div class="form-group">
@@ -25,8 +30,9 @@
 						<button class="btn btn-lg btn-primary">Submit!</button>
 					</div>
 				</form>
+				<a href="/trails">Go Back</a>
+				<br/><br/><br/>
 			</div>
-		<a href="/trails">Go Back</a>
 	</div>
 </div>
 
